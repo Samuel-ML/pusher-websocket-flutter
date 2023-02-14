@@ -1,3 +1,4 @@
+publish_to: none
 name: pusher_websocket_flutter
 description: A Flutter plugin to listen to events sent through pusher. Wraps the native Java and Swift libraries
 version: 0.2.0
