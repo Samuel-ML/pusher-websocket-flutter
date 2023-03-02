@@ -24,9 +24,6 @@ class Pusher {
     PusherOptions options, {
     bool enableLogging = false,
   }) async {
-    assert(appKey != null);
-    assert(options != null);
-
     _eventChannel.receiveBroadcastStream().listen(_handleEvent);
 
     final initArgs = jsonEncode(InitArgs(
