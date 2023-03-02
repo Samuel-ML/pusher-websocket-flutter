@@ -10,9 +10,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  Event lastEvent;
-  String lastConnectionState;
-  Channel channel;
+  Event? lastEvent;
+  String? lastConnectionState;
+  Channel? channel;
 
   var channelController = TextEditingController(text: "my-channel");
   var eventController = TextEditingController(text: "my-event");
@@ -51,10 +51,10 @@ class _MyAppState extends State<MyApp> {
                     Pusher.connect(onConnectionStateChange: (x) async {
                       if (mounted)
                         setState(() {
-                          lastConnectionState = x.currentState;
+                          lastConnectionState = x!.currentState;
                         });
                     }, onError: (x) {
-                      debugPrint("Error: ${x.message}");
+                      debugPrint("Error: ${x!.message}");
                     });
                   },
                 ),
@@ -112,7 +112,7 @@ class _MyAppState extends State<MyApp> {
                     RaisedButton(
                       child: Text("Bind"),
                       onPressed: () async {
-                        await channel.bind(eventController.text, (x) {
+                        await channel!.bind(eventController.text, (x) {
                           if (mounted)
                             setState(() {
                               lastEvent = x;
@@ -134,7 +134,7 @@ class _MyAppState extends State<MyApp> {
                     RaisedButton(
                       child: Text("Unbind"),
                       onPressed: () async {
-                        await channel.unbind(eventController.text);
+                        await channel!.unbind(eventController.text);
                       },
                     )
                   ],
