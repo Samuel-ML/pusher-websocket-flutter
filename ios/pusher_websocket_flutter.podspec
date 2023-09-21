@@ -16,7 +16,7 @@ Pusher Flutter Client
   s.public_header_files = 'Classes/**/*.h'
   s.swift_version = '4.2'
   s.dependency 'Flutter'
-  s.dependency 'PusherSwift', '7.0.0'
+  s.dependency 'PusherSwift', :git => 'https://github.com/Samuel-ML/pusher-websocket-swift.git', :branch => 'pusher-v8.0.0-with-starcream-v4.0.4'
 
   s.ios.deployment_target = '9.0'
 end
